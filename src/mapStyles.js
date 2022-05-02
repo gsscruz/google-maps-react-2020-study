@@ -1,4 +1,4 @@
-export default [
+const styleGray = [
   {
     featureType: "all",
     elementType: "geometry.fill",
@@ -168,3 +168,4 @@ export default [
     ],
   },
 ];
+export default styleGray
