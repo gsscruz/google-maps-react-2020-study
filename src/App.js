@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   GoogleMap,
   useLoadScript,
@@ -77,6 +77,7 @@ const App = () => {
           position={center}
         />
       </GoogleMap>
-    </div>)
+    </div>
+  )
 }
 export default App
