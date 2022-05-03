@@ -24,6 +24,7 @@ import { formatRelative } from "date-fns";
 // } from "@reach/combobox";
 
 import "@reach/combobox/styles.css";
+import ClustererComponent from "@react-google-maps/api/dist/components/addons/MarkerClusterer";
 
 const libraries = ["places"]
 
@@ -48,6 +49,7 @@ const App = () => {
     libraries: libraries
   });
 
+  const { markers, setMarkers } = useState([])
   if (loadError) return "Error loading maps";
   if (!isLoaded) return "Loading maps";
 
@@ -61,6 +63,15 @@ const App = () => {
         zoom={8}
         center={center}
         options={options}
+        onClick={(event) => {
+          setMarkers((current) => [
+            ...current,
+            {
+              lat: event.latLng.lat(),
+              lng: event.latLng.lng(),
+              time: new Date()
+            }])
+        }}
       >
         <Marker
           position={center}
